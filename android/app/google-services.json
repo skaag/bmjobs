@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "206930330626",
+    "project_id": "bmjobsorg",
+    "storage_bucket": "bmjobsorg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206930330626:android:8c5918b2f3fd1344f5d31b",
+        "android_client_info": {
+          "package_name": "Robin.Job.Posts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzpCWlSWAshBdor4L1IZYUkEm3nptNhO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
