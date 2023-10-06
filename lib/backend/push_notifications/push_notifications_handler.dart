@@ -80,12 +80,9 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   Widget build(BuildContext context) => _loading
       ? Container(
           color: Colors.transparent,
-          child: Center(
-            child: Image.asset(
-              'assets/images/splash@2x.png',
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              fit: BoxFit.fitWidth,
-            ),
+          child: Image.asset(
+            'assets/images/381400503_10160718557155056_4070679030001362488_n.jpg',
+            fit: BoxFit.cover,
           ),
         )
       : widget.child;

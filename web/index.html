@@ -19,7 +19,7 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="bmjobs">
+  <meta name="apple-mobile-web-app-title" content="Campmate.app">
 
   
 
@@ -29,16 +29,16 @@
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Open Graph & SEO tags -->
-  <meta property="og:title" content="BurningMan Jobs" />
-  <meta property="og:description" content="BurningMan Jobs" />
+  <meta property="og:title" content="CampMate" />
+  <meta property="og:description" content="Find your tribe!" />
   <meta property="og:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" /> 
-  <meta name="twitter:title" content="BurningMan Jobs" />
-  <meta name="twitter:description" content="BurningMan Jobs" />
+  <meta name="twitter:title" content="CampMate" />
+  <meta name="twitter:description" content="Find your tribe!" />
   <meta name="twitter:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title> BurningMan Jobs </title>
-  <meta name="description" content="BurningMan Jobs" />
+  <title> CampMate </title>
+  <meta name="description" content="Find your tribe!" />
     
 
   <!-- Status Bar color in Safari browser (iOS) and PWA -->
@@ -66,7 +66,9 @@
         },
         onEntrypointLoaded: async function(engineInitializer) {
           // Initialize the Flutter engine
-          let appRunner = await engineInitializer.initializeEngine();
+          let appRunner = await engineInitializer.initializeEngine({
+            useColorEmoji: true,
+          });
           // Run the app
           await appRunner.runApp();
         }

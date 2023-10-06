@@ -70,110 +70,113 @@ class _DETAILSChatWidgetState extends State<DETAILSChatWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkText,
-        automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30.0,
-          borderWidth: 1.0,
-          buttonSize: 60.0,
-          icon: Icon(
-            Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).tertiary,
-            size: 24.0,
-          ),
-          onPressed: () async {
-            context.pop();
-          },
-        ),
-        title: Text(
-          widget.chatUser!.displayName,
-          style: FlutterFlowTheme.of(context).titleSmall.override(
-                fontFamily: 'Outfit',
+    return Title(
+        title: 'DETAILS_Chat',
+        color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).darkText,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
                 color: FlutterFlowTheme.of(context).tertiary,
+                size: 24.0,
               ),
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 1.0,
-      ),
-      body: SafeArea(
-        top: true,
-        child: StreamBuilder<FFChatInfo>(
-          stream: FFChatManager.instance.getChatInfo(
-            otherUserRecord: widget.chatUser,
-            chatReference: widget.chatRef,
+              onPressed: () async {
+                context.pop();
+              },
+            ),
+            title: Text(
+              widget.chatUser!.displayName,
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Outfit',
+                    color: FlutterFlowTheme.of(context).tertiary,
+                  ),
+            ),
+            actions: [],
+            centerTitle: false,
+            elevation: 1.0,
           ),
-          builder: (context, snapshot) => snapshot.hasData
-              ? FFChatPage(
-                  chatInfo: snapshot.data!,
-                  allowImages: true,
-                  backgroundColor:
-                      FlutterFlowTheme.of(context).primaryBackground,
-                  timeDisplaySetting: TimeDisplaySetting.visibleOnTap,
-                  currentUserBoxDecoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.transparent,
+          body: SafeArea(
+            top: true,
+            child: StreamBuilder<FFChatInfo>(
+              stream: FFChatManager.instance.getChatInfo(
+                otherUserRecord: widget.chatUser,
+                chatReference: widget.chatRef,
+              ),
+              builder: (context, snapshot) => snapshot.hasData
+                  ? FFChatPage(
+                      chatInfo: snapshot.data!,
+                      allowImages: true,
+                      backgroundColor:
+                          FlutterFlowTheme.of(context).primaryBackground,
+                      timeDisplaySetting: TimeDisplaySetting.visibleOnTap,
+                      currentUserBoxDecoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.transparent,
+                        ),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      otherUsersBoxDecoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primary,
+                        border: Border.all(
+                          color: Colors.transparent,
+                        ),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      currentUserTextStyle: GoogleFonts.getFont(
+                        'DM Sans',
+                        color: Color(0xFF1E2429),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.0,
+                        fontStyle: FontStyle.normal,
+                      ),
+                      otherUsersTextStyle: GoogleFonts.getFont(
+                        'DM Sans',
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.0,
+                      ),
+                      inputHintTextStyle: GoogleFonts.getFont(
+                        'DM Sans',
+                        color: Color(0xFF95A1AC),
+                        fontWeight: FontWeight.normal,
+                        fontSize: 14.0,
+                      ),
+                      inputTextStyle: GoogleFonts.getFont(
+                        'DM Sans',
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 14.0,
+                      ),
+                      emptyChatWidget: Center(
+                        child: EmptyMessagesWidget(
+                          title: 'Start the Conversation',
+                          bodyText:
+                              'Apply to this job by introducing yourself below and the recruiter can get in touch with you about this position.',
+                        ),
+                      ),
+                    )
+                  : Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: SpinKitRipple(
+                          color: Color(0xFFFF6200),
+                          size: 50.0,
+                        ),
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  otherUsersBoxDecoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primary,
-                    border: Border.all(
-                      color: Colors.transparent,
-                    ),
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  currentUserTextStyle: GoogleFonts.getFont(
-                    'DM Sans',
-                    color: Color(0xFF1E2429),
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.0,
-                    fontStyle: FontStyle.normal,
-                  ),
-                  otherUsersTextStyle: GoogleFonts.getFont(
-                    'DM Sans',
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.0,
-                  ),
-                  inputHintTextStyle: GoogleFonts.getFont(
-                    'DM Sans',
-                    color: Color(0xFF95A1AC),
-                    fontWeight: FontWeight.normal,
-                    fontSize: 14.0,
-                  ),
-                  inputTextStyle: GoogleFonts.getFont(
-                    'DM Sans',
-                    color: Colors.black,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 14.0,
-                  ),
-                  emptyChatWidget: Center(
-                    child: EmptyMessagesWidget(
-                      title: 'Start the Conversation',
-                      bodyText:
-                          'Apply to this job by introducing yourself below and the recruiter can get in touch with you about this position.',
-                    ),
-                  ),
-                )
-              : Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitRipple(
-                      color: Color(0xFFAA60EE),
-                      size: 50.0,
-                    ),
-                  ),
-                ),
-        ),
-      ),
-    );
+            ),
+          ),
+        ));
   }
 }

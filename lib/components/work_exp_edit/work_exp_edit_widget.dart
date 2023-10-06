@@ -63,7 +63,7 @@ class _WorkExpEditWidgetState extends State<WorkExpEditWidget> {
               width: 50.0,
               height: 50.0,
               child: SpinKitRipple(
-                color: Color(0xFFAA60EE),
+                color: Color(0xFFFF6200),
                 size: 50.0,
               ),
             ),

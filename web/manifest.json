@@ -1,6 +1,6 @@
 {
-    "name": "bmjobs",
-    "short_name": "bmjobs",
+    "name": "campmate",
+    "short_name": "campmate",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

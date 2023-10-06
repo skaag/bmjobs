@@ -39,130 +39,134 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        automaticallyImplyLeading: false,
-        leading: Icon(
-          Icons.chevron_left_rounded,
-          color: FlutterFlowTheme.of(context).darkText,
-          size: 32.0,
-        ),
-        title: Text(
-          'Forgot Password',
-          style: FlutterFlowTheme.of(context).titleMedium,
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 0.0,
-      ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
-            child: TextFormField(
-              controller: _model.emailAddressController,
-              obscureText: false,
-              decoration: InputDecoration(
-                labelText: 'Your Email',
-                labelStyle: FlutterFlowTheme.of(context).titleSmall,
-                hintText: 'Please enter a valid email...',
-                hintStyle: FlutterFlowTheme.of(context).titleSmall,
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).lineColor,
-                    width: 2.0,
+    return Title(
+        title: 'forgotPassword',
+        color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            automaticallyImplyLeading: false,
+            leading: Icon(
+              Icons.chevron_left_rounded,
+              color: FlutterFlowTheme.of(context).darkText,
+              size: 32.0,
+            ),
+            title: Text(
+              'Forgot Password',
+              style: FlutterFlowTheme.of(context).titleMedium,
+            ),
+            actions: [],
+            centerTitle: false,
+            elevation: 0.0,
+          ),
+          body: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                child: TextFormField(
+                  controller: _model.emailAddressController,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Your Email',
+                    labelStyle: FlutterFlowTheme.of(context).titleSmall,
+                    hintText: 'Please enter a valid email...',
+                    hintStyle: FlutterFlowTheme.of(context).titleSmall,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).lineColor,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    errorBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedErrorBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    filled: true,
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  keyboardType: TextInputType.emailAddress,
+                  validator: _model.emailAddressControllerValidator
+                      .asValidator(context),
                 ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                errorBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                focusedErrorBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                filled: true,
-                fillColor: FlutterFlowTheme.of(context).secondaryBackground,
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium,
-              keyboardType: TextInputType.emailAddress,
-              validator:
-                  _model.emailAddressControllerValidator.asValidator(context),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Text(
-                    'We will send you an email with a link to reset your password, please enter the email associated with your account above.',
-                    style: FlutterFlowTheme.of(context).bodySmall,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-            child: FFButtonWidget(
-              onPressed: () async {
-                if (_model.emailAddressController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Email required!',
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'We will send you an email with a link to reset your password, please enter the email associated with your account above.',
+                        style: FlutterFlowTheme.of(context).bodySmall,
                       ),
                     ),
-                  );
-                  return;
-                }
-                await authManager.resetPassword(
-                  email: _model.emailAddressController.text,
-                  context: context,
-                );
-              },
-              text: 'Send Reset Password',
-              options: FFButtonOptions(
-                width: 230.0,
-                height: 50.0,
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: FlutterFlowTheme.of(context).primary,
-                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Outfit',
-                      color: FlutterFlowTheme.of(context).tertiary,
-                    ),
-                elevation: 3.0,
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1.0,
+                  ],
                 ),
-                borderRadius: BorderRadius.circular(8.0),
               ),
-            ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    if (_model.emailAddressController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Email required!',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+                    await authManager.resetPassword(
+                      email: _model.emailAddressController.text,
+                      context: context,
+                    );
+                  },
+                  text: 'Send Reset Password',
+                  options: FFButtonOptions(
+                    width: 230.0,
+                    height: 50.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).tertiary,
+                        ),
+                    elevation: 3.0,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 }
